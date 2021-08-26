@@ -1,4 +1,4 @@
-﻿# This script will migrate your existing data from Adatum's old ticketing system to its new one.
+# This script will migrate your existing data from Adatum's old ticketing system to its new one. 
 
 # IMPORTANT: You CANNOT run this script as one command. Some of the commands can be run together in one selection, but others must be run separately.
 # Please refer to the instructions in this script as to how you can run each command.
@@ -29,7 +29,7 @@ $ServiceRequestSystem= Import-Csv "C:\Users\administrator.adatum\Documents\Servi
 
 # Line 32 should be run by itself and not included with any other selection. 
 
-Connect-PnPOnline -Url "https://m365xZZZZZZ.sharepoint.com/sites/ITServices" -Credentials $credential
+Connect-PnPOnline -Url "https://m365x137419.sharepoint.com/sites/ITServices" -Credentials $credential
 
 
 # Each of the next 6 commands (lines 41-51) MUST be run separately. 
@@ -72,10 +72,11 @@ $ServiceRequestSystem
 
 foreach($Record in $ServiceRequestSystem){
 Add-PnPListItem -List "Service Desk Requests" -Values @{
-"issueTitle"= $Record.'IssueTitle'; 
+"IssueTitle"= $Record.'IssueTitle'; #ta bort mellanrum på Issue Title
 "Date"= $Record.'Date';
 "Location"= $Record. 'Location';
-"Title"= $Record.'Issue Status';
+"IssueStatus"= $Record.'Issue Status';
 "Description"= $Record.'Description'}}
 
 # Complete
+
