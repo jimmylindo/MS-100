@@ -46,9 +46,9 @@ Add-PnPField -List "Service Desk Requests" -DisplayName "Description" -InternalN
 
 Add-PnPField -List "Service Desk Requests" -DisplayName "Location" -InternalName "Location" -Type Text -AddToDefaultView
 
-Add-PnPField -List "Service Desk Requests" -DisplayName "Issue Title" -InternalName "IssueTitle" -Type Text -AddToDefaultView
+Add-PnPField -List "Service Desk Requests" -DisplayName "IssueTitle" -InternalName "IssueTitle" -Type Text -AddToDefaultView
 
-Add-PnPField -List "Service Desk Requests" -DisplayName "Issue Status" -InternalName "Issue Status" -Type Text -AddToDefaultView
+Add-PnPField -List "Service Desk Requests" -DisplayName "IssueStatus" -InternalName "IssueStatus" -Type Text -AddToDefaultView
 
 
 # While the next two commands can technically be run together, they each display a large amount of text, so it's better off running them separately so that 
@@ -72,7 +72,7 @@ $ServiceRequestSystem
 
 foreach($Record in $ServiceRequestSystem){
 Add-PnPListItem -List "Service Desk Requests" -Values @{
-"issueTitle"= $Record.'IssueTitle'; #ta bort mellanrum på Issue Title
+"issueTitle"= $Record.'IssueTitle'; 
 "Date"= $Record.'Date';
 "Location"= $Record. 'Location';
 "Title"= $Record.'Issue Status';
